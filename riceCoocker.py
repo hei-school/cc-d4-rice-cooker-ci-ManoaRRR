@@ -1,5 +1,4 @@
 import time
-
 class RiceCooker:
     def __init__(self):
         self.rice_type = ''
@@ -39,15 +38,21 @@ class RiceCooker:
             print("Cuisson en cours...")
             self.is_cooking = True
 
-            # Simulation de la cuisson - remplacez cela par une logique de détection réelle
+            print(f"Avant la simulation : is_cooking={self.is_cooking}")
+
+        # Simulation de la cuisson - remplacez cela par une logique de détection réelle
             time.sleep(self.cooking_time * 60)  # Convertir le temps de cuisson en secondes
 
             print("La cuisson est terminée.")
             self.is_cooking = False
 
+            print(f"Après la simulation : is_cooking={self.is_cooking}")
+
         except ValueError as e:
             print(f"Erreur de cuisson : {e}")
             self.is_cooking = False
+
+
 
     def stop_cooking(self):
         if not self.is_cooking:
@@ -58,17 +63,4 @@ class RiceCooker:
 
     def check_cooking_status(self):
         cooking_status = "Oui" if self.is_cooking else "Non"
-        print(f"État du cuiseur à riz - Type de riz: {self.rice_type}, Niveau d'eau: {self.water_level}%, Cuisson en cours: {cooking_status}")
-
-# Utilisation du cuiseur à riz
-rice_cooker = RiceCooker()
-
-try:
-    rice_cooker.set_rice_type('riz blanc')
-    rice_cooker.set_water_level(50)
-    rice_cooker.set_cooking_time(10)
-    rice_cooker.start_cooking()
-    rice_cooker.check_cooking_status()
-    rice_cooker.stop_cooking()
-except ValueError as error:
-    print(f"Erreur: {error}")
+        return f"État du cuiseur à riz - Type de riz: {self.rice_type}, Niveau d'eau: {self.water_level}%, Cuisson en cours: {cooking_status}"
